@@ -30,23 +30,23 @@ In this case f1 score is chosen as a metric over accuracy due to the imbalance i
 
 For a RandomForestClassifier, hyperparameters whose tuning will elicit significant impact on learning are (search space associated with each hyperparameter is also provided)
 
-Number of trees in random forest:
-n_estimators = [int(x) for x in np.linspace(start = 100, stop = 500, num = 10)]
+Number of trees in random forest:   
+n_estimators = [int(x) for x in np.linspace(start = 100, stop = 500, num = 10)]    
 
-Maximum number of levels in tree:
-max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
-max_depth.append(None)
+Maximum number of levels in tree:   
+max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]   
+max_depth.append(None)    
 
-Minimum number of samples required to split a node:
-min_samples_split = [2, 5, 10]
+Minimum number of samples required to split a node:   
+min_samples_split = [2, 5, 10]   
 
-Minimum number of samples required at each leaf node:
-min_samples_leaf = [1, 2, 4]
+Minimum number of samples required at each leaf node:   
+min_samples_leaf = [1, 2, 4]    
 
 A grid with the above details regarding search space of hyperparameters under consideration is created. RandomizedSearchCV is deployed to perform a random search on the provided search space rather than probing all possible combinations of hyperparameters. The most important arguments in RandomizedSearchCV are n_iter, which controls the number of different combinations to try, and cv which is the number of folds to use for cross validation (we use 10 and 5 respectively). More iterations will cover a wider search space and more cv folds reduces the chances of overfitting, but raising each will increase the run time. Machine learning is a field of trade-offs, and performance vs time is one of the most fundamental.
 
-This yielded best hyperparameter set:
-	n_estimators : 366
+This yielded best hyperparameter set:   
+n_estimators : 366
 min_samples_split: 5
 min_samples_split: 5
 min_samples_leaf: 1
